@@ -6,7 +6,13 @@
     "pages/home/index",
     "pages/regist/index",
     "pages/mine/index",
-    "pages/function/index"
+    "pages/function/index",
+    "pages/shuifei/index",
+    "pages/reshui/index",
+    "pages/yikatong/index",
+    "pages/dingshui/index",
+    "pages/dianfei/index",
+    "pages/buy/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

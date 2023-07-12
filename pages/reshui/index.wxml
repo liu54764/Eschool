@@ -1,0 +1,37 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}" >
+  <view slot="backText" >返回</view>
+  <view slot="content" style="text-align: center;font-weight: 700;">热水充值</view>
+</cu-custom>
+<view class="container">
+  <view class="card">
+    <view class="card-header" style="float: left;">热水卡</view>
+    <image class="icon" style="margin-left: 150px;" src="/asset/imgs/card.png" />
+    <view class="card-content">
+      <view class="info">
+        <text class="name">姓名：{{studentName}}</text>
+        <text class="student-id">学号：{{studentID}}</text>
+        <text class="balance">余额：{{balance}} 元</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="records-section">
+    <button class="records-button" bindtap="showRechargeRecords">充值记录</button>
+    <view class="record-list" wx:if="{{showRecordList}}">
+      <view class="record" wx:for="{{rechargeRecords}}" wx:key="index">
+        {{item}}
+      </view>
+    </view>
+  </view>
+  <view class="divider"></view>
+  <view class="payment-section">
+    <view class="label">充值金额</view>
+    <picker mode="selector" range="{{rechargeAmountOptions}}" bindchange="handleAmountChange">
+      <view class="picker">
+        {{rechargeAmount}} 元
+      </view>
+    </picker>
+  </view>
+  <view class="divider"></view>
+  <button class="recharge-button" bindtap="confirmRecharge">立即充值</button>
+</view>

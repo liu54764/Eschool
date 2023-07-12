@@ -1,0 +1,137 @@
+.container {
+  padding: 20px;
+}
+
+.card {
+  width: 340px;
+  height: 170px;
+  background-image: linear-gradient(to right, #dba06f, #f1bda5);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  float: left;
+  margin-left: 20px;
+}
+
+.name,
+.student-id,
+.balance {
+  font-size: 18px;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.icon{
+  margin-top: 0px;
+  height: 50px;
+  width: 70px;
+}
+.recharge-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.recharge-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.records-section {
+  width: 100%;
+  /* display: flex;
+  justify-content: center; */
+  margin-top: 20px;
+}
+
+.records-button {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  /* border-radius: 4px; */
+  text-align: center;
+}
+
+.record-list {
+  margin-top: 10px;
+}
+
+.record {
+  margin-bottom: 5px;
+  color: #000;
+}
+.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1 0 45%; /* 45% 是示例值，根据实际需要调整 */
+  margin-bottom: 20px;
+}
+
+.payment-section {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.label {
+  margin-top: 20px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: serif;
+}
+
+.picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.arrow {
+  width: 12px;
+  height: 12px;
+  transform: rotate(90deg);
+}
+
+.recharge-button {
+  font-size: 20px;
+  padding: 10px 0;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 0;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}

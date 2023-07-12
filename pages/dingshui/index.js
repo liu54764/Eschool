@@ -1,29 +1,13 @@
-// pages/regist/index.js
+// pages/dingshui/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    stuId: '',
-    password: '',
-    password1: '',
-    selectedValue: '',  // 选择的值
+
   },
-  handleRadioChange: function(event) {
-    const value = event.detail.value;
-    this.setData({
-      selectedValue: value
-    });
-    console.log('选择的值：', value);
-  },
- goback(){
-  setTimeout(() => {
-    wx.redirectTo({
-      url: '/pages/login/index',
-    })
-  }, 1000);
- },
+
   /**
    * 生命周期函数--监听页面加载
    */

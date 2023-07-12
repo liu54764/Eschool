@@ -1,0 +1,135 @@
+.container {
+  padding: 0px;
+}
+
+.card {
+  margin-top: 20px;
+  width: 340px;
+  height: 170px;
+  background-image: linear-gradient(to right, #c4e8f0, #b7b0f8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  float: left;
+  margin-left: 20px;
+}
+
+.name,
+.student-id,
+.balance {
+  font-size: 18px;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.icon{
+  margin-top: 0px;
+  height: 50px;
+  width: 70px;
+}
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button {
+  flex: 1;
+  padding: 20px;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 0;
+  text-align: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  width: 90%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.modal-title {
+  font-size:24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.modal-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal-option {
+  font-size: 16px;
+  padding: 10px;
+  margin: 5px;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-button {
+  background-color: #4a90e2;
+  color: #fff;
+  font-weight: bold;
+  /* width: 30px;
+  flex: 1;
+  padding: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center; */
+}
+
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  z-index: 9999;
+}

@@ -7,10 +7,58 @@ Page({
   data: {
 
   },
-  regist(){
+  out(){
     setTimeout(() => {
       wx.redirectTo({
         url: '/pages/login/index',
+      })
+    }, 500);
+  },
+  navigateToFunctionPage1()
+  {
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/shuifei/index',
+      })
+    }, 500);
+  },
+  navigateToFunctionPage2()
+  {
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/dianfei/index',
+      })
+    }, 500);
+  },
+  navigateToFunctionPage3()
+  {
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/yikatong/index',
+      })
+    }, 500);
+  },
+  navigateToFunctionPage4()
+  {
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/reshui/index',
+      })
+    }, 500);
+  },
+  navigateToFunctionPage5()
+  {
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/dingshui/index',
+      })
+    }, 500);
+  },
+  navigateToFunctionPage6()
+  {
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/buy/index',
       })
     }, 500);
   },

@@ -21,6 +21,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "shuifei",
+          "pathName": "pages/shuifei/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "一卡通",
+          "pathName": "pages/yikatong/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "热水",
+          "pathName": "pages/reshui/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
