@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="header">
+    <image src="/asset/imgs/1.png" mode="aspectFill"></image>
+  </view>
+  <view class="login">
+    <view class="form-item">
+      <image src="/asset/imgs/user.png" mode="aspectFill"></image>
+      <input type="text" model:value="{{stuId}}" placeholder="请输入学号" />
+    </view>
+    <view class="form-item">
+      <image src="/asset/imgs/password.png" mode="aspectFill"></image>
+      <input type="password" model:value="{{password}}" placeholder="请输入密码" />
+    </view>
+    <view class="form-item">
+      <image src="/asset/imgs/password.png" mode="aspectFill"></image>
+      <input type="password" model:value="{{password1}}" placeholder="请确认密码" />
+    </view>
+    <!-- <view bindtap="switchStatus" class="checkbox-item">
+      <checkbox checked="{{saveCount}}" class="theme"></checkbox>
+      <view class="margin-left-sm">记住账号密码</view>
+    </view> -->
+    <button class="cu-btn" bindtap="">注册</button>
+    <button class="cu-btn" bindtap="goback" style="margin-top: 20px;">返回</button>
+  </view>
+</view>
+
