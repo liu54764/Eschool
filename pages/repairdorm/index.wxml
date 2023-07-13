@@ -1,0 +1,56 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}" >
+  <view slot="backText" >返回</view>
+  <view slot="content" style="text-align: center;font-weight: 700;">宿舍报修</view>
+</cu-custom>
+<view class="container">
+  <view class="title">
+    <text class="title-text">宿舍报修</text>
+    <button class="history-button" bindtap="showRepairRecord">历史记录</button>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">楼号：</text>
+    <picker mode="selector" range="{{buildingNumbers}}" bindchange="handleBuildingSelect">
+      <view class="picker">{{selectedBuildingNumber}}</view>
+    </picker>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">寝室号：</text>
+    <picker mode="selector" range="{{dormitoryNumbers}}" bindchange="handleDormitorySelect">
+      <view class="picker">{{selectedDormitoryNumber}}</view>
+    </picker>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">报修物品</text>
+    <picker mode="selector" range="{{repairItems}}" bindchange="handleRepairItemSelect">
+      <view class="picker">{{selectedRepairItem}}</view>
+    </picker>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">报修原因</text>
+    <textarea model:value="{{text}}" class="textarea" placeholder="请输入报修原因" bindinput="handleReasonInput"></textarea>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">联系电话</text>
+    <input class="input" model:value="{{phoneNumber}}" placeholder="请输入联系电话" bindinput="handlePhoneInput" />
+  </view>
+  <view class="divider"></view>
+  <button class="submit-button" bindtap="submitRepair">报修提交</button>
+</view>
+
+<!-- 添加报修记录对话框 -->
+<view class="modal" wx:if="{{showRecordModal}}">
+  <view class="modal-content">
+    <view class="modal-title">报修记录</view>
+    <view class="record-list">
+      <view class="record" wx:for="{{repairRecords}}" wx:key="index">
+        {{item}}
+      </view>
+    </view>
+    <button class="modal-button" bindtap="hideRecordModal">关闭</button>
+  </view>
+</view>

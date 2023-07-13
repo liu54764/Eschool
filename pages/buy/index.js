@@ -5,11 +5,11 @@ Page({
     shopList: [
       {
         name: '水果店',
-        image: '/images/fruits.jpg',
+        image: '/asset/imgs/card.png',
       },
       {
         name: '超市',
-        image: '/images/supermarket.jpg',
+        image: '/asset/imgs/card.png',
       },
     ],
   },
