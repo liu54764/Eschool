@@ -12,5 +12,12 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  "usingComponents": {
+    "van-button": "/vant/button/index",
+    "van-cell": "/vant/cell/index",
+    "van-toast": "/vant/toast/index",
+    "van-radio": "/vant/radio/index",
+    "van-radio-group": "/vant/radio-group/index"
   }
 })

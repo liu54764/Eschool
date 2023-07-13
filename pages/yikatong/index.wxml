@@ -1,0 +1,43 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}" >
+  <view slot="backText" >返回</view>
+  <view slot="content" style="text-align: center;font-weight: 700;">一卡通</view>
+</cu-custom>
+<view class="container">
+  <view class="card">
+    <view class="card-header" style="float: left;">一卡通</view>
+    <image class="icon" style="margin-left: 150px;" src="/asset/imgs/卡注册.png" />
+    <view class="card-content">
+      <view class="info">
+        <text class="name">姓名：{{studentName}}</text>
+        <text class="student-id">学号：{{studentID}}</text>
+        <text class="balance">余额：{{balance}} 元</text>
+      </view>
+    </view>
+  </view>
+  <view class="buttons">
+    <button class="button" bindtap="showRechargeModal">充值</button>
+    <button class="button" bindtap="handleRechargeRecords">充值记录</button>
+    <button class="button" bindtap="handleTransactionRecords">交易记录</button>
+  </view>
+</view>
+
+<!-- 添加自定义的模态框 -->
+<view class="modal" wx:if="{{showModal}}">
+  <view class="modal-content">
+    <view class="modal-title">选择充值金额</view>
+    <view class="modal-options">
+      <view class="modal-option" wx:for="{{rechargeAmountRange}}" wx:key="index" bindtap="handleAmountSelect" data-amount="{{item}}">
+        {{item}} 元
+      </view>
+    </view>
+    <view class="modal-buttons">
+      <button class="modal-button" bindtap="confirmRecharge">确定充值</button>
+      <button class="modal-button" bindtap="hideRechargeModal">取消</button>
+    </view>
+  </view>
+</view>
+
+<view class="toast" wx:if="{{showToast}}">
+  充值成功
+</view>
+

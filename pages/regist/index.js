@@ -8,6 +8,14 @@ Page({
     stuId: '',
     password: '',
     password1: '',
+    selectedValue: '',  // 选择的值
+  },
+  handleRadioChange: function(event) {
+    const value = event.detail.value;
+    this.setData({
+      selectedValue: value
+    });
+    console.log('选择的值：', value);
   },
  goback(){
   setTimeout(() => {

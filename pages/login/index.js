@@ -5,16 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
+    selectedValue: '',  // 选择的值
      stuId:'',
      password:''
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
+  handleRadioChange: function(event) {
+    const value = event.detail.value;
+    this.setData({
+      selectedValue: value
+    });
+    console.log('选择的值：', value);
+  },
   onLoad(options) {
 
   },
+  selectIdentity: function (event) {
+    const value = event.detail.value;
+    this.setData({
+      selectedIdentity: value
+    });
+  },
+  
   login(){
     const postData = {
       stuId: this.data.stuId,
@@ -23,7 +37,7 @@ Page({
     wx.request({
       url: 'url',
       data:postData,
-      method: 'POST',
+      method: 'GET',
       success(res){
         console.log(res)
         wx.setStorageSync('token', res.data.cookie)
@@ -50,52 +64,55 @@ Page({
       })
     }, 500);
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
+  selectIdentity(){
 
   },
+  // /**
+  //  * 生命周期函数--监听页面初次渲染完成
+  //  */
+  // onReady() {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+  // },
 
-  },
+  // /**
+  //  * 生命周期函数--监听页面显示
+  //  */
+  // onShow() {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+  // },
 
-  },
+  // /**
+  //  * 生命周期函数--监听页面隐藏
+  //  */
+  // onHide() {
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
+  // },
 
-  },
+  // /**
+  //  * 生命周期函数--监听页面卸载
+  //  */
+  // onUnload() {
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
+  // },
 
-  },
+  // /**
+  //  * 页面相关事件处理函数--监听用户下拉动作
+  //  */
+  // onPullDownRefresh() {
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
+  // },
 
-  },
+  // /**
+  //  * 页面上拉触底事件的处理函数
+  //  */
+  // onReachBottom() {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
+  // },
 
-  }
+  // /**
+  //  * 用户点击右上角分享
+  //  */
+  // onShareAppMessage() {
+
+  // }
 })

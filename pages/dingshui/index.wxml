@@ -1,0 +1,68 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}" >
+  <view slot="backText" >返回</view>
+  <view slot="content" style="text-align: center;font-weight: 700;">网上订水</view>
+</cu-custom>
+<view class="container">
+  <view class="title">
+    <text class="title-text">智能订水</text>
+    <button class="history-button" bindtap="showPurchaseHistory">历史记录</button>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label" style="flex: 80 0 0px;margin-top: 10px;font-size: 24px;">派送地址选择</text>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">姓名：</text>
+    <input class="input" model:value="{{name}}" placeholder="请输入姓名" bindinput="handleNameInput" />
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">电话：</text>
+    <input class="input" model:value="{{phone}}" placeholder="请输入电话" bindinput="handlePhoneInput" />
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">楼号</text>
+    <picker mode="selector" range="{{buildingNumbers}}" bindchange="handleBuildingSelect">
+      <view class="picker">{{selectedBuildingNumber}}</view>
+    </picker>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">寝室号</text>
+    <picker mode="selector" range="{{dormitoryNumbers}}" bindchange="handleDormitorySelect">
+      <view class="picker">{{selectedDormitoryNumber}}</view>
+    </picker>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">桶装水</text>
+    <picker mode="selector" range="{{waterTypes}}" bindchange="handleWaterTypeSelect">
+      <view class="picker">{{selectedWaterType}}</view>
+    </picker>
+  </view>
+  <view class="divider"></view>
+  <view class="form-group">
+    <text class="label">数量：</text>
+    <view class="quantity-control">
+      <button class="quantity-button" bindtap="decreaseQuantity">-</button>
+      <text class="quantity-text">{{quantity}}</text>
+      <button class="quantity-button" bindtap="increaseQuantity">+</button>
+    </view>
+  </view>
+  <button class="purchase-button" bindtap="purchaseWater">购买桶装水</button>
+</view>
+
+<!-- 添加购买记录对话框 -->
+<view class="modal" wx:if="{{showRecordModal}}">
+  <view class="modal-content">
+    <view class="modal-title">购买记录</view>
+    <view class="record-list">
+      <view class="record" wx:for="{{purchaseRecords}}" wx:key="index">
+        {{item}}
+      </view>
+    </view>
+    <button class="modal-button" bindtap="hideRecordModal">关闭</button>
+  </view>
+</view>

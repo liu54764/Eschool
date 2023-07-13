@@ -1,16 +1,18 @@
 <cu-custom bgColor="bg-white" isBack="{{true}}" >
-  <view slot="backText" bindtap="regist">退出</view>
+  <view slot="backText" bindtap="out">退出</view>
   <view slot="content" style="text-align: center;font-weight: 700;">首页</view>
 </cu-custom>
-<view class="container" style="margin-top: 20px;">
+<view class="container">
   <view class="button-area">
-    <button class="function-button" bindtap="navigateToFunctionPage1">功能1</button>
-    <button class="function-button" bindtap="navigateToFunctionPage2">功能2</button>
-    <button class="function-button" bindtap="navigateToFunctionPage3">功能3</button>
-    <button class="function-button" bindtap="navigateToFunctionPage4">功能4</button>
-    <button class="function-button" bindtap="navigateToFunctionPage4">功能5</button>
-    <button class="function-button" bindtap="navigateToFunctionPage4">功能6</button>
-    <!-- 添加更多功能按钮 -->
+    <button class="function-button" bindtap="navigateToFunctionPage1">交水费</button>
+    <button class="function-button" bindtap="navigateToFunctionPage2">交电费</button>
+    <button class="function-button" bindtap="navigateToFunctionPage3">一卡通</button>
+    <button class="function-button" bindtap="navigateToFunctionPage4">热水充值</button>
+    <button class="function-button" bindtap="navigateToFunctionPage5">网上订水</button>
+    <button class="function-button" bindtap="navigateToFunctionPage6">商品购买</button>
+    <button class="function-button" bindtap="navigateToFunctionPage7">宿舍维修</button>
+    <button class="function-button" bindtap="navigateToFunctionPage8">个人物品维修</button>
+
   </view>
 
 </view>

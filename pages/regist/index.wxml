@@ -5,7 +5,7 @@
   <view class="login">
     <view class="form-item">
       <image src="/asset/imgs/user.png" mode="aspectFill"></image>
-      <input type="text" model:value="{{stuId}}" placeholder="请输入学号" />
+      <input type="text" model:value="{{stuId}}" placeholder="请输入用户名" />
     </view>
     <view class="form-item">
       <image src="/asset/imgs/password.png" mode="aspectFill"></image>
@@ -15,10 +15,15 @@
       <image src="/asset/imgs/password.png" mode="aspectFill"></image>
       <input type="password" model:value="{{password1}}" placeholder="请确认密码" />
     </view>
-    <!-- <view bindtap="switchStatus" class="checkbox-item">
-      <checkbox checked="{{saveCount}}" class="theme"></checkbox>
-      <view class="margin-left-sm">记住账号密码</view>
-    </view> -->
+    <radio-group bindchange="handleRadioChange">
+    <label class="radio-label">
+      <radio value="0" /> 学生
+    </label>
+    <label class="radio-label">
+      <radio value="1" /> 老师
+    </label>
+  </radio-group>
+  <!-- <view class="selected-value">选择的值：{{selectedValue}}</view> -->
     <button class="cu-btn" bindtap="">注册</button>
     <button class="cu-btn" bindtap="goback" style="margin-top: 20px;">返回</button>
   </view>

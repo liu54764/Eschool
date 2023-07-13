@@ -1,0 +1,45 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}" >
+  <view slot="backText" >返回</view>
+  <view slot="content" style="text-align: center;font-weight: 700;">电费充值</view>
+</cu-custom>
+<view class="container" >
+  <view class="header" >电费充值</view>
+  <view class="divider"></view>
+  <view class="current-time">当前时间：{{currentTime}}</view>
+  <view class="divider"></view>
+  <view class="current-balance" style="font-size: 18px;font-weight: 700;">截至 {{currentDate}}，剩余电费：{{electricityBalance}} 元</view>
+  <view class="divider"></view>
+  <view class="dorm-info" style="font-weight: bold;font-size: 20px;">
+    <text>{{buildingNumber}}号楼{{dormNumber}}寝室</text>
+    <button class="query-button" style="margin-right: 10px;" bindtap="handleQueryClick">缴费记录</button>
+  </view>
+  <view class="divider"></view>
+  <view class="payment-section">
+    <view class="label">选择楼号</view>
+    <picker mode="selector" range="{{buildingOptions}}" bindchange="handleBuildingChange">
+      <view class="picker">
+        {{selectedBuilding}} 
+      </view>
+    </picker>
+  </view>
+  <view class="payment-section">
+    <view class="label">选择寝室号</view>
+    <picker mode="selector" range="{{dormOptions}}" bindchange="handleDormChange">
+      <view class="picker">
+        {{selectedDorm}}
+      </view>
+    </picker>
+  </view>
+  <view class="divider"></view>
+  <view class="payment-section">
+    <view class="label">充值金额</view>
+    <picker mode="selector" range="{{rechargeAmountOptions}}" bindchange="handleAmountChange">
+      <view class="picker">
+        {{rechargeAmount}} 元
+      </view>
+    </picker>
+  </view>
+  <view class="divider"></view>
+  <button class="recharge-button" bindtap="handleRechargeClick">立即充值</button>
+</view>
+

@@ -1,0 +1,16 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}" >
+  <view slot="backText" >返回</view>
+  <view slot="content" style="text-align: center;font-weight: 700;">商品购买</view>
+</cu-custom>
+<view class="container">
+  <view class="title">校园商品购买</view>
+  <view class="shop-list">
+    <block wx:for="{{shopList}}" wx:key="index">
+      <view class="shop-item" bindtap="goToShopDetail">
+        <image class="shop-image" src="{{item.image}}" mode="aspectFill"></image>
+        <text class="shop-name">{{item.name}}</text>
+      </view>
+      <view class="divider"></view>
+    </block>
+  </view>
+</view>
