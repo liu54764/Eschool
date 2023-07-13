@@ -1,1 +1,43 @@
 /* pages/mine/index.wxss */
+.userinfo{
+  position: relative;
+  width: 750rpx;
+  height: 320rpx;
+  color:#130909;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to right,#f8f3f3,#7566ed);
+}
+.userinfo-avatar{
+  overflow: hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  margin-top: 50rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0,0,0, 0.2);
+}
+.jiantou{
+  width: 30rpx;
+  height: 32rpx;
+  float: right;
+  margin-top: 16rpx;
+}
+.menu{
+  padding: 20rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+}
+.menu >view{
+  padding: 40rpx;
+  line-height: 60rpx;
+  border-bottom:  1px solid #efefef;
+  height: 60rpx;
+}:none
+.menu > view:last-child{
+  border: none;
+}

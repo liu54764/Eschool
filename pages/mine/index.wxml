@@ -1,4 +1,30 @@
 <cu-custom bgColor="bg-white">
   <view slot="backText">返回</view>
-  <view slot="content" style="text-align: center;font-weight: 700;">我的</view>
+  <view slot="content" style="text-align: center;font-weight: 700;">个人中心</view>
 </cu-custom>
+<view class="userinfo">
+<view class="userinfo-avatar">
+  <open-data type="userAvatarUrl"></open-data>
+</view>
+  <open-data type="userNickName"></open-data>
+</view>
+<view class="menu">
+  <view bindtap="info">个人信息
+  <image class="jiantou" src="/asset/imgs/refresh.png"></image>
+  </view>
+  <view bindtap="yikatong">一卡通余额查询
+    <image class="jiantou" src="/asset/imgs/refresh.png"></image>
+  </view>  
+  <view bindtap="dianfei">电费查询
+    <image class="jiantou" src="/asset/imgs/refresh.png"></image>
+  </view>
+  <view bindtap="shangping">商品订单查询
+    <image class="jiantou" src="/asset/imgs/refresh.png"></image>
+  </view>
+  <view bindtap="shezhi">设置
+    <image class="jiantou" src="/asset/imgs/refresh.png"></image>
+  </view>
+  <view bindtap="shezhi">退出登录
+    <image class="jiantou" src="/asset/imgs/refresh.png"></image>
+  </view>
+</view>
