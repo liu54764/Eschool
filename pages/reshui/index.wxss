@@ -5,7 +5,7 @@
 .card {
   width: 340px;
   height: 170px;
-  background-image: linear-gradient(to right, #dba06f, #f1bda5);
+  background-image: linear-gradient(to right, #dba06f, #e6f1a5);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

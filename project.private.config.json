@@ -42,6 +42,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "订水",
+          "pathName": "pages/dingshui/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

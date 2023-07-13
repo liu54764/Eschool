@@ -1,1 +1,147 @@
-/* pages/dingshui/index.wxss */
+.container {
+  /* display: flex;
+  flex-direction: column; */
+  padding: 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 120px;
+}
+
+.title-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.history-button {
+  margin-left: 20px;
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 2px 12px;
+  border-radius: 4px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+
+.form-group {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.label {
+  flex: 0 0 80px;
+  margin-left: 20px;
+  font-family: serif;
+  font-weight: bold;
+}
+
+.input {
+ text-align: center;
+  height: 40px;
+  flex: 1;
+  /* padding: 10px; */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.picker {
+  text-align: center;
+  height: 40px;
+  /* display: flex;
+  align-items: center; */
+  justify-content: space-between;
+  /* font-size: px; */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 235px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-button {
+  width: 40px;
+  height: 40px;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.quantity-text {
+  margin: 0 30px;
+}
+
+.purchase-button {
+  width: 100%;
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.record-list {
+  margin-top: 10px;
+}
+
+.record {
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.modal-button {
+  /* width: 250px; */
+  flex: 1;
+  padding: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.modal-button + .modal-button {
+  margin-top: 10px;
+}
