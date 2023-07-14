@@ -1,4 +1,49 @@
 <cu-custom bgColor="bg-white">
   <view slot="backText">返回</view>
-  <view slot="content" style="text-align: center;font-weight: 700;">功能</view>
+  <view slot="content" style="text-align: center;font-weight: 700;">跑腿订单</view>
 </cu-custom>
+
+<scroll-view scroll-x class="scroll_view">
+  <view class="tab">
+    <view class=" tab_item {{ tabNow === index ? 'select' : ''}}" wx:for="{{tabList}}" data-id="{{index}}" wx:key="index" bindtap="selectTab">
+      {{ item }}
+    </view>
+  </view>
+</scroll-view>
+
+<view wx:if="{{ tabNow === 0 }}" class="body">
+   <view class="tips">
+     向上拖动更新信息~~~
+   </view>
+
+   <view class="order" wx:for="{{4}}" wx:key="index">
+     <view class="order_top">
+       <view class="top_left">
+         <image src="/asset/imgs/user.png"></image>
+         <view class="name">
+           <text>网上订餐</text>
+           <text>2天前</text>
+         </view> 
+       </view>
+       <view class="top_right">
+         待帮助
+       </view>
+     </view>
+     <view class="order_content">
+       <view class="content">
+         希望能够来一份美味的番茄鸡蛋炒，在加一个青椒肉丝，米饭多加一点，希望能在30分钟内搞定，并送到指定地点。
+       </view>
+       <view class="address">
+         目的地：杭电-28号楼-512
+       </view>
+     </view>
+     <view class="order_bottom">
+       <view class="money">
+         金额 ￥20
+       </view>
+       <view class="accept">
+         接单
+       </view>
+     </view>
+   </view>
+</view>
