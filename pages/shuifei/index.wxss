@@ -113,3 +113,52 @@
   width: 100%;
   font-weight: bold;
 }
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.record-list {
+  margin-top: 10px;
+}
+
+.record {
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.modal-button {
+  /* width: 250px; */
+  flex: 1;
+  padding: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.modal-button + .modal-button {
+  margin-top: 10px;
+}

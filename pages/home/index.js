@@ -8,6 +8,7 @@ Page({
 
   },
   out(){
+    wx.clearStorageSync();
     setTimeout(() => {
       wx.redirectTo({
         url: '/pages/login/index',
@@ -78,15 +79,7 @@ Page({
       })
     }, 500);
   },
-  navigateToFunctionPage8()
-  {
-    setTimeout(() => {
-      wx.navigateTo({
-        url: '/pages/repairp/index',
-      })
-    }, 500);
-  },
-  navigateToFunctionPage8()
+  navigateToFunctionPage9()
   {
     setTimeout(() => {
       wx.navigateTo({

@@ -12,6 +12,9 @@ Page({
     showRecordModal: false,  // 是否显示购买记录对话框
     purchaseRecords: []  // 购买记录
   },
+  onLoad: function () {
+  
+  },
   showPurchaseHistory: function () {
     this.setData({
       showRecordModal: true

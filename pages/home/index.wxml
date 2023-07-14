@@ -12,7 +12,7 @@
     <button class="function-button" bindtap="navigateToFunctionPage6">商品购买</button>
     <button class="function-button" bindtap="navigateToFunctionPage7">宿舍维修</button>
     <button class="function-button" bindtap="navigateToFunctionPage8">个人物品维修</button>
-    <button class="function-button" bindtap="navigateToFunctionPage8">跑腿服务</button>
+    <button class="function-button" bindtap="navigateToFunctionPage9">跑腿服务</button>
 
   </view>
 

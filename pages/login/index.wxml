@@ -17,7 +17,7 @@
       <radio value="0" /> 学生
     </label>
     <label class="radio-label">
-      <radio value="1" /> 老师
+      <radio value="1" /> 商家
     </label>
   </radio-group>
     <!-- <view class="selected-value">选择的值：{{selectedValue}}</view> -->

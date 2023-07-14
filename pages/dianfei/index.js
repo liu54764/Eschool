@@ -16,6 +16,46 @@ Page({
     this.setCurrentDate();
     this.updateTime();
     this.setBuildingOptions();
+    this.getBalance();
+  },
+  getBalance: function () {
+    const token = wx.getStorageSync('token');
+    const room = token.data.room;
+    const building = token.data.building;
+    this.setData({
+      buildingNumber:building,  // 示例楼号
+      dormNumber: room, 
+    });
+    const postData = {
+      room:room,
+      building:building
+    }
+    wx.request({
+      url: 'http://localhost:8088/dorm/inquire',
+      method:"POST",
+      data:postData,
+      success: (res) => {
+        console.log(res);
+        if (res.data.msg === '查询成功') {
+          const balance = res.data.data.electricity;
+          this.setData({
+            electricityBalance: balance
+          });
+          console.log('余额：', balance);
+        } else {
+          wx.showToast({
+            title: '获取余额失败',
+            icon: 'none'
+          });
+        }
+      },
+      fail: () => {
+        wx.showToast({
+          title: '请求失败，请检查网络连接',
+          icon: 'none'
+        });
+      }
+    });
   },
   updateTime: function () {
     const self = this;

@@ -11,7 +11,7 @@
   <view class="divider"></view>
   <view class="dorm-info" style="font-weight: bold;font-size: 20px;">
     <text>{{buildingNumber}}号楼{{dormNumber}}寝室</text>
-    <button class="query-button" style="margin-right: 10px;" bindtap="handleQueryClick">缴费记录</button>
+    <button class="query-button" style="margin-right: 10px;" bindtap="showPurchaseHistory">缴费记录</button>
   </view>
   <view class="divider"></view>
   <view class="payment-section">
@@ -42,4 +42,17 @@
   <view class="divider"></view>
   <button class="recharge-button" bindtap="handleRechargeClick">立即充值</button>
 </view>
+<!-- 添加购买记录对话框 -->
+<view class="modal" wx:if="{{showRecordModal}}">
+  <view class="modal-content">
+    <view class="modal-title">充值记录</view>
+    <view class="record-list">
+      <view class="record" wx:for="{{purchaseRecords}}" wx:key="index">
+        {{item}}
+      </view>
+    </view>
+    <button class="modal-button" bindtap="hideRecordModal">关闭</button>
+  </view>
+</view>
+
 

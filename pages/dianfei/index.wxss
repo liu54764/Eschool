@@ -46,7 +46,16 @@
   margin-bottom: 10px;
   width: 100%;
 }
-
+.recharge-button {
+  font-size: 20px;
+  padding: 10px 0;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 0;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
 .query-button {
   font-size: 18px;
   padding: 2px 10px;
@@ -103,13 +112,3 @@
   transform: rotate(90deg);
 }
 
-.recharge-button {
-  font-size: 20px;
-  padding: 10px 0;
-  background-color: #4a90e2;
-  color: #fff;
-  border-radius: 0;
-  text-align: center;
-  width: 100%;
-  font-weight: bold;
-}

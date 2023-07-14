@@ -1,5 +1,5 @@
-<cu-custom bgColor="bg-white" isBack="{{true}}" >
-  <view slot="backText" >返回</view>
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
   <view slot="content" style="text-align: center;font-weight: 700;">热水充值</view>
 </cu-custom>
 <view class="container">
@@ -16,12 +16,7 @@
   </view>
 
   <view class="records-section">
-    <button class="records-button" bindtap="showRechargeRecords">充值记录</button>
-    <view class="record-list" wx:if="{{showRecordList}}">
-      <view class="record" wx:for="{{rechargeRecords}}" wx:key="index">
-        {{item}}
-      </view>
-    </view>
+    <button class="records-button" bindtap="showPurchaseHistory">充值记录</button>
   </view>
   <view class="divider"></view>
   <view class="payment-section">
@@ -34,4 +29,18 @@
   </view>
   <view class="divider"></view>
   <button class="recharge-button" bindtap="confirmRecharge">立即充值</button>
+</view>
+<!-- 添加购买记录对话框 -->
+<view class="modal" wx:if="{{showRecordModal}}">
+  <view class="modal-content">
+    <view class="modal-title">充值记录</view>
+    <view class="record-list">
+      <view class="record" wx:for="{{rechargeRecords}}" wx:key="index" wx:if="{{index < 7}}">
+        <view>充值金额: {{item.amount}} 元</view>
+        <view>时间: {{item.time}}</view>
+        <view class="record-separator"></view>
+      </view>
+    </view>
+    <button class="modal-button" bindtap="hideRecordModal">关闭</button>
+  </view>
 </view>

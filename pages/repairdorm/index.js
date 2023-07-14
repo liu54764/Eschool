@@ -1,19 +1,29 @@
-// 页面逻辑部分的 JavaScript 文件
-
 Page({
   data: {
-    buildingNumbers: ['1号楼', '2号楼', '3号楼', '4号楼'], // 示例楼号数据
+    buildingNumbers: ['1', '2', '3', '4'], // 示例楼号数据
     dormitoryNumbers: ['101', '102', '103', '104'], // 示例寝室号数据
     repairItems: ['电器', '水管', '家具', '其他'], // 示例报修物品数据
     selectedBuildingNumber: '', // 选中的楼号
     selectedDormitoryNumber: '', // 选中的寝室号
-    selectedRepairItem: '', // 选中的报修物品
+    selectedRepairItem: '电器', // 选中的报修物品
     phoneNumber: '', // 联系电话
     showRecordModal: false, // 是否显示报修记录对话框
     repairRecords: [], // 报修记录数据
     text:'',
   },
-
+  onLoad: function () {
+    this.getRecord();
+  },
+  getRecord(){
+    const token = wx.getStorageSync('token');
+    const room = token.data.room;
+    const building = token.data.building;
+    this.setData({
+      selectedBuildingNumber:building,  // 示例楼号
+      selectedDormitoryNumber: room, 
+      phoneNumber:token.data.phone
+    });
+  },
   showRepairRecord() {
     // TODO: 根据需要从后端获取报修记录数据，并存储到 repairRecords 中
     // 示例代码，你需要根据实际情况进行调整
