@@ -1,0 +1,4 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}" >
+  <view slot="backText" >返回</view>
+  <view slot="content" style="text-align: center;font-weight: 700;">个人物品维修</view>
+</cu-custom>

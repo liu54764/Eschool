@@ -78,8 +78,8 @@ Page({
     } else {
       // 表单信息不完整，进行相应处理
       wx.showToast({
-        title: '购买失败',
-        icon:'error'
+        title: '请输入完整信息',
+        icon:'none'
       })
 
     }
