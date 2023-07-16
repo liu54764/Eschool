@@ -8,6 +8,7 @@ Page({
 
   },
   out(){
+    wx.clearStorageSync();
     setTimeout(() => {
       wx.redirectTo({
         url: '/pages/login/index',
@@ -62,6 +63,31 @@ Page({
       })
     }, 500);
   },
+  navigateToFunctionPage7()
+  {
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/repairdorm/index',
+      })
+    }, 500);
+  },
+  navigateToFunctionPage8()
+  {
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/repairp/index',
+      })
+    }, 500);
+  },
+  navigateToFunctionPage9()
+  {
+    setTimeout(() => {
+      wx.navigateTo({
+        url: '/pages/paotui/index',
+      })
+    }, 500);
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

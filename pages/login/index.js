@@ -17,45 +17,67 @@ Page({
     this.setData({
       selectedValue: value
     });
+    wx.setStorageSync('Identity', value);
     console.log('选择的值：', value);
   },
   onLoad(options) {
 
   },
-  selectIdentity: function (event) {
-    const value = event.detail.value;
-    this.setData({
-      selectedIdentity: value
-    });
-  },
-  
-  login(){
+  login() {
+    const identity = this.data.selectedValue;
     const postData = {
-      stuId: this.data.stuId,
+      sid: this.data.stuId,
       password: this.data.password
+    };
+  
+    let url = '';
+    if (identity === '0') {
+      url = 'http://localhost:8088/student/login';
+    } else if (identity === '1') {
+      url = 'http://localhost:8088/business/login';
     }
-    wx.request({
-      url: 'url',
-      data:postData,
-      method: 'GET',
-      success(res){
-        console.log(res)
-        wx.setStorageSync('token', res.data.cookie)
-        wx.showToast({
-          title: '登录成功',
-          icon: 'none'
-        })
-      }
-    })
-   wx.showToast({
-     title: '登录成功',
-     icon: 'none'
-   })
-   setTimeout(() => {
-    wx.switchTab({
-      url: '/pages/home/index',
-    })
-  }, 500);
+  
+    if (url !== '') {
+      wx.request({
+        url: url,
+        data: postData,
+        method: 'POST',
+        success(res) {
+          console.log(res);
+          if (res.data.msg === '登陆成功') {
+            // 密码正确，登录成功
+            wx.setStorageSync('token', res.data);
+            wx.showToast({
+              title: '登录成功',
+              icon: 'none'
+            });
+            // 延迟跳转到首页页面（以达到显示 Toast 的效果）
+            setTimeout(() => {
+              wx.switchTab({
+                url: '/pages/home/index'
+              });
+            }, 500);
+          } else {
+            // 密码错误或其他登录失败的情况
+            wx.showToast({
+              title: '登录失败，请检查用户名和密码',
+              icon: 'none'
+            });
+          }
+        },
+        fail() {
+          wx.showToast({
+            title: '请求失败，请检查网络连接',
+            icon: 'none'
+          });
+        }
+      });
+    } else {
+      wx.showToast({
+        title: '请选择身份',
+        icon: 'none'
+      });
+    }
   },
   regist(){
     setTimeout(() => {
@@ -63,9 +85,6 @@ Page({
         url: '/pages/regist/index',
       })
     }, 500);
-  },
-  selectIdentity(){
-
   },
   // /**
   //  * 生命周期函数--监听页面初次渲染完成

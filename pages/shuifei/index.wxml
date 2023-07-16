@@ -1,9 +1,9 @@
-<cu-custom bgColor="bg-white" isBack="{{true}}" >
-  <view slot="backText" >返回</view>
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
   <view slot="content" style="text-align: center;font-weight: 700;">水费充值</view>
 </cu-custom>
-<view class="container" >
-  <view class="header" >水费充值</view>
+<view class="container">
+  <view class="header">水费充值</view>
   <view class="divider"></view>
   <view class="current-time">当前时间：{{currentTime}}</view>
   <view class="divider"></view>
@@ -11,14 +11,14 @@
   <view class="divider"></view>
   <view class="dorm-info" style="font-weight: bold;font-size: 20px;">
     <text>{{buildingNumber}}号楼{{dormNumber}}寝室</text>
-    <button class="query-button" style="margin-right: 10px;" bindtap="handleQueryClick">缴费记录</button>
+    <button class="query-button" style="margin-right: 10px;" bindtap="showPurchaseHistory">缴费记录</button>
   </view>
   <view class="divider"></view>
   <view class="payment-section">
     <view class="label">选择楼号</view>
     <picker mode="selector" range="{{buildingOptions}}" bindchange="handleBuildingChange">
       <view class="picker">
-        {{selectedBuilding}} 
+        {{selectedBuilding}}
       </view>
     </picker>
   </view>
@@ -42,4 +42,16 @@
   <view class="divider"></view>
   <button class="recharge-button" bindtap="handleRechargeClick">立即充值</button>
 </view>
-
+<!-- 添加购买记录对话框 -->
+<view class="modal" wx:if="{{showRecordModal}}">
+  <view class="modal-content">
+    <view class="modal-title">充值记录</view>
+    <view class="record-list">
+      <view class="record" wx:for="{{purchaseRecords}}" wx:key="index">
+        {{item.amount}} 元 - {{item.time}} - {{item.buyer}}
+        <view class="record-separator"></view>
+      </view>
+    </view>
+    <button class="modal-button" bindtap="hideRecordModal">关闭</button>
+  </view>
+</view>

@@ -12,7 +12,10 @@
     "pages/yikatong/index",
     "pages/dingshui/index",
     "pages/dianfei/index",
-    "pages/buy/index"
+    "pages/buy/index",
+    "pages/repairdorm/index",
+    "pages/repairp/index",
+    "pages/paotui/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,7 +40,7 @@
         "pagePath": "pages/home/index"
       },
       {
-        "text": "功能",
+        "text": "跑腿",
         "iconPath": "/asset/tabbar_icon/course.png",
         "selectedIconPath": "/asset/tabbar_icon/course_active.png",
         "pagePath": "pages/function/index"
@@ -51,4 +54,5 @@
     ]
   },
   "sitemapLocation": "sitemap.json"
+
 }

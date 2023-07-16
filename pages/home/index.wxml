@@ -1,18 +1,54 @@
-<cu-custom bgColor="bg-white" isBack="{{true}}" >
+<cu-custom bgColor="bg-white" isBack="{{true}}">
   <view slot="backText" bindtap="out">退出</view>
   <view slot="content" style="text-align: center;font-weight: 700;">首页</view>
 </cu-custom>
 <view class="container">
-  <view class="button-area">
-    <button class="function-button" bindtap="navigateToFunctionPage1">交水费</button>
-    <button class="function-button" bindtap="navigateToFunctionPage2">交电费</button>
-    <button class="function-button" bindtap="navigateToFunctionPage3">一卡通</button>
-    <button class="function-button" bindtap="navigateToFunctionPage4">热水充值</button>
-    <button class="function-button" bindtap="navigateToFunctionPage5">网上订水</button>
-    <button class="function-button" bindtap="navigateToFunctionPage6">商品购买</button>
-    <button class="function-button" bindtap="navigateToFunctionPage7">宿舍维修</button>
-    <button class="function-button" bindtap="navigateToFunctionPage8">个人物品维修</button>
-
+  <view style="width: 320px;height: 20px;">
+    <image src="/asset/imgs/R.jpg" mode="widthFix"  style="border-radius: 10px;"></image>
   </view>
-
+  <view class="card">
+  <view class="button-area">
+    <button class="function-button" bindtap="navigateToFunctionPage1">
+      <text class="cuIcon-news"></text>
+      <text>交水费</text>
+    </button>
+    <button class="function-button" bindtap="navigateToFunctionPage2">
+      <text class="cuIcon-news"></text>
+      <text>交电费</text>
+    </button>
+    <button class="function-button" bindtap="navigateToFunctionPage3">
+      <text class="cuIcon-github"></text>
+      <text>一卡通</text>
+    </button>
+    <!-- 添加其他按钮 -->
+    <!-- 示例 -->
+    <button class="function-button" bindtap="navigateToFunctionPage4">
+      <text class="cuIcon-hot"></text>
+      <text>热水充值</text>
+    </button>
+    <button class="function-button" bindtap="navigateToFunctionPage5">
+      <text class="cuIcon-new"></text>
+      <text>网上订水</text>
+    </button>
+    <button class="function-button" bindtap="navigateToFunctionPage6">
+      <text class="cuIcon-goods"></text>
+      <text>商品购买</text>
+    </button>
+    <button class="function-button" bindtap="navigateToFunctionPage7">
+      <text class="cuIcon-repair"></text>
+      <text>宿舍维修</text>
+    </button>
+    <button class="function-button" bindtap="navigateToFunctionPage8">
+      <text class="cuIcon-service"></text>
+      <text>个人物品维修</text>
+    </button>
+    <button class="function-button" bindtap="navigateToFunctionPage9">
+      <text class="cuIcon-run"></text>
+      <text>跑腿服务</text>
+    </button>
+  </view>
+  </view>
+  <view style="width: 200px;height: 50px;">
+    <image src="/asset/imgs/logoko.png" mode="widthFix"></image>
+  </view>
 </view>
