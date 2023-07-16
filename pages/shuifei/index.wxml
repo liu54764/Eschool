@@ -1,9 +1,9 @@
-<cu-custom bgColor="bg-white" isBack="{{true}}" >
-  <view slot="backText" >返回</view>
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
   <view slot="content" style="text-align: center;font-weight: 700;">水费充值</view>
 </cu-custom>
-<view class="container" >
-  <view class="header" >水费充值</view>
+<view class="container">
+  <view class="header">水费充值</view>
   <view class="divider"></view>
   <view class="current-time">当前时间：{{currentTime}}</view>
   <view class="divider"></view>
@@ -18,7 +18,7 @@
     <view class="label">选择楼号</view>
     <picker mode="selector" range="{{buildingOptions}}" bindchange="handleBuildingChange">
       <view class="picker">
-        {{selectedBuilding}} 
+        {{selectedBuilding}}
       </view>
     </picker>
   </view>
@@ -48,11 +48,10 @@
     <view class="modal-title">充值记录</view>
     <view class="record-list">
       <view class="record" wx:for="{{purchaseRecords}}" wx:key="index">
-        {{item}}
+        {{item.amount}} 元 - {{item.time}} - {{item.buyer}}
+        <view class="record-separator"></view>
       </view>
     </view>
     <button class="modal-button" bindtap="hideRecordModal">关闭</button>
   </view>
 </view>
-
-

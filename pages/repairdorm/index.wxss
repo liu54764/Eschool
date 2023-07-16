@@ -14,7 +14,7 @@
 .history-button {
   float: left;
   margin-left: 20px;
-  background-color: #4a90e2;
+  background-color: #1ab8c4;
   color: #fff;
   padding: 2px 12px;
   border-radius: 4px;
@@ -36,10 +36,11 @@
 }
 
 .label {
+  color: rgb(107, 10, 10);
   flex: 0 0 100px;
   margin-left: 20px;
   font-family: serif;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .input {
@@ -75,7 +76,7 @@
 
 .submit-button {
   width: 100%;
-  background-color: #4a90e2;
+  background-color: #1ab8c4;
   color: #fff;
   padding: 5px;
   border-radius: 4px;
@@ -86,7 +87,7 @@
 }
 
 .modal {
-  z-index: 10;
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
@@ -99,26 +100,81 @@
 }
 
 .modal-content {
+  width: 90%;
   background-color: #fff;
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .modal-title {
+  font-size:24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.modal-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal-option {
   font-size: 16px;
+  padding: 10px;
+  margin: 5px;
+  background-color: #1ab8c4;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-button {
+  background-color: #1ab8c4;
+  color: #fff;
+  font-weight: bold;
+}
+
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  z-index: 9999;
+}
+.modal-content {
+  padding: 20px;
+}
+
+.modal-title {
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .record-list {
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .record {
-  margin-bottom: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
-.modal-button {
-  background-color: #4a90e2;
-  color: #fff;
-  font-weight: bold;
+
+.record-separator {
+  height: 1px;
+  background-color: #e5e5e5;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

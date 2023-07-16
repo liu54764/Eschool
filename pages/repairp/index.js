@@ -9,6 +9,7 @@ Page({
     phoneNumber: '',
     showRecordModal: false,
     repairRecords: [],
+    text:'',
   },
   onLoad: function () {
     this.getRecord();
@@ -18,9 +19,38 @@ Page({
     const name = token.data.sname;
     const studentID = token.data.sid;
     this.setData({
-      name:name,  // 示例楼号
+      name:name, 
       studentID: studentID, 
       phoneNumber:token.data.phone
+    });
+    const postData = {
+      sid: studentID,
+    };
+    wx.request({
+      url: 'http://localhost:8088/personMaintenance/list',
+      method: 'POST',
+      data: postData,
+      success: (res) => {
+        // console.log(res);
+        if (res.data.msg === '查询成功') {
+          const repairRecords = res.data.data;
+          this.setData({
+            repairRecords: repairRecords,
+          });
+          // console.log('报修记录：', repairRecords);
+        } else {
+          wx.showToast({
+            title: '获取报修记录失败',
+            icon: 'none',
+          });
+        }
+      },
+      fail: () => {
+        wx.showToast({
+          title: '请求失败，请检查网络连接',
+          icon: 'none',
+        });
+      },
     });
   },
   handleNameInput(event) {
@@ -55,26 +85,65 @@ Page({
     });
   },
 
-  submitRepair() {
-    // 进行报修提交逻辑
-    const record = `姓名：${this.data.name}，学号：${this.data.studentID}，报修物品：${this.data.selectedRepairItem}，报修原因：${this.data.reason}，联系电话：${this.data.phoneNumber}`;
+  
+  submitRepair: function () {
+    const {
+      name,
+      studentID,
+      selectedRepairItem,
+      phoneNumber,
+      text
+    } = this.data;
 
-    // 模拟报修提交成功后更新记录
-    const repairRecords = this.data.repairRecords;
-    repairRecords.unshift(record);  // 将记录添加到数组开头
-    if (repairRecords.length > 7) {
-      repairRecords.splice(7);  // 保留最近的七条记录
+    if (!name || !studentID || !selectedRepairItem || !phoneNumber) {
+      wx.showToast({
+        title: '请填写完整信息',
+        icon: 'none',
+      });
+      return;
     }
 
-    this.setData({
-      repairRecords: repairRecords
-    });
+    const postData = {
+      sname: name,
+      sid: studentID,
+      item: selectedRepairItem,
+      phone: phoneNumber,
+      description: text,
+    };
 
-    wx.showToast({
-      title: '报修成功',
+    wx.request({
+      url: 'http://localhost:8088/personMaintenance/add',
+      method: 'POST',
+      data: postData,
+      success: (res) => {
+        // console.log(res);
+        if (res.data.msg === '新增成功') {
+          this.getRecord();
+          wx.showToast({
+            title: '报修申请提交成功',
+            icon: 'success',
+            duration: 2000,
+            success: () => {
+              this.setData({
+                text: '',
+              });
+            },
+          });
+        } else {
+          wx.showToast({
+            title: '报修申请提交失败',
+            icon: 'none',
+          });
+        }
+      },
+      fail: () => {
+        wx.showToast({
+          title: '请求失败，请检查网络连接',
+          icon: 'none',
+        });
+      },
     });
   },
-
   showRepairRecord() {
     this.setData({
       showRecordModal: true

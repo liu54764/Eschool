@@ -27,13 +27,13 @@ Page({
     wx.request({
       url: 'http://localhost:8088/student/inquire?sid=' + sid,
       success: (res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.msg === '查询成功') {
           const balance = res.data.data.cardAmount;
           this.setData({
             balance: balance
           });
-          console.log('余额：', balance);
+          // console.log('余额：', balance);
         } else {
           wx.showToast({
             title: '获取余额失败',
@@ -61,7 +61,7 @@ Page({
       method: 'POST',
       data: postData,
       success: (res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.msg === "查询成功") {
           const rechargeRecords = res.data.data;
           const formattedRecords = rechargeRecords.map(record => {
@@ -76,7 +76,7 @@ Page({
           this.setData({
             purchaseRecords: formattedRecords
           });
-          console.log('充值记录：', formattedRecords);
+          // console.log('充值记录：', formattedRecords);
         } else {
           wx.showToast({
             title: '获取充值记录失败',
@@ -138,12 +138,17 @@ Page({
         amount: parseFloat(this.data.selectedAmount)
       };
       wx.request({
-        url: 'http://localhost:8088/personRecharge/add',
+        url: 'http://localhost:8088/student/recharge',
         method: 'POST',
         data: postData,
         success: (res) => {
           console.log(res);
-          if (res.data.msg === "新增成功") {
+          if (res.data.msg === "充值成功") {
+            wx.request({
+              url: 'http://localhost:8088/personRecharge/add',
+              method: 'POST',
+              data: postData, 
+            });
             const newBalance = this.data.balance + parseFloat(this.data.selectedAmount);
             this.setData({
               balance: newBalance

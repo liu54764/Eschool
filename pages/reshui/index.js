@@ -121,11 +121,15 @@ Page({
         success: (res) => {
           // console.log(res);
           if (res.data.msg === "新增成功") {
+            wx.request({
+              url: 'http://localhost:8088/student/recharge',
+              method: 'POST',
+              data: postData, 
+            });
             wx.showToast({
               title: '充值成功',
               icon: 'none'
             });
-            // console.log('充值成功');
           } else {
             wx.showToast({
               title: '充值失败',

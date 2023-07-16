@@ -60,7 +60,8 @@
     <view class="modal-title">购买记录</view>
     <view class="record-list">
       <view class="record" wx:for="{{purchaseRecords}}" wx:key="index">
-        {{item}}
+        {{item.type}} - {{item.number}} - {{item.time}} - {{item.buyer}}
+        <view class="record-separator"></view>
       </view>
     </view>
     <button class="modal-button" bindtap="hideRecordModal">关闭</button>

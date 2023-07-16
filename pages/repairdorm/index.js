@@ -9,72 +9,102 @@ Page({
     phoneNumber: '', // 联系电话
     showRecordModal: false, // 是否显示报修记录对话框
     repairRecords: [], // 报修记录数据
-    text:'',
+    text: '',
   },
+
   onLoad: function () {
     this.getRecord();
   },
-  getRecord(){
+
+  getRecord: function () {
     const token = wx.getStorageSync('token');
     const room = token.data.room;
     const building = token.data.building;
     this.setData({
-      selectedBuildingNumber:building,  // 示例楼号
-      selectedDormitoryNumber: room, 
-      phoneNumber:token.data.phone
+      selectedBuildingNumber: building,
+      selectedDormitoryNumber: room,
+      phoneNumber: token.data.phone,
+    });
+    const postData = {
+      building: this.data.selectedBuildingNumber,
+      room: this.data.selectedDormitoryNumber,
+    };
+
+    wx.request({
+      url: 'http://localhost:8088/dormMaintenance/list',
+      method: 'POST',
+      data: postData,
+      success: (res) => {
+        // console.log(res);
+        if (res.data.msg === '查询成功') {
+          const repairRecords = res.data.data;
+          this.setData({
+            repairRecords: repairRecords,
+          });
+          // console.log('报修记录：', repairRecords);
+        } else {
+          wx.showToast({
+            title: '获取报修记录失败',
+            icon: 'none',
+          });
+        }
+      },
+      fail: () => {
+        wx.showToast({
+          title: '请求失败，请检查网络连接',
+          icon: 'none',
+        });
+      },
     });
   },
+
   showRepairRecord() {
-    // TODO: 根据需要从后端获取报修记录数据，并存储到 repairRecords 中
-    // 示例代码，你需要根据实际情况进行调整
-    const records = ['2022-01-01 10:00:00 - 电器报修', '2022-01-02 11:00:00 - 水管报修'];
     this.setData({
-      repairRecords: records,
       showRecordModal: true,
     });
   },
 
-  hideRecordModal() {
+  hideRecordModal: function () {
     this.setData({
       showRecordModal: false,
     });
   },
 
-  handleBuildingSelect(event) {
+  handleBuildingSelect: function (event) {
     const selectedBuildingNumber = this.data.buildingNumbers[event.detail.value];
     this.setData({
       selectedBuildingNumber: selectedBuildingNumber,
     });
   },
 
-  handleDormitorySelect(event) {
+  handleDormitorySelect: function (event) {
     const selectedDormitoryNumber = this.data.dormitoryNumbers[event.detail.value];
     this.setData({
       selectedDormitoryNumber: selectedDormitoryNumber,
     });
   },
 
-  handleRepairItemSelect(event) {
+  handleRepairItemSelect: function (event) {
     const selectedRepairItem = this.data.repairItems[event.detail.value];
     this.setData({
       selectedRepairItem: selectedRepairItem,
     });
   },
 
-  handlePhoneInput(event) {
+  handlePhoneInput: function (event) {
     const phoneNumber = event.detail.value;
     this.setData({
       phoneNumber: phoneNumber,
     });
   },
 
-  submitRepair() {
-    // TODO: 提交报修申请的逻辑
+  submitRepair: function () {
     const {
       selectedBuildingNumber,
       selectedDormitoryNumber,
       selectedRepairItem,
-      phoneNumber
+      phoneNumber,
+      text
     } = this.data;
 
     if (!selectedBuildingNumber || !selectedDormitoryNumber || !selectedRepairItem || !phoneNumber) {
@@ -84,28 +114,44 @@ Page({
       });
       return;
     }
-    
-    // 示例代码，你需要根据实际情况进行调整
-    const repairInfo = {
+
+    const postData = {
       building: selectedBuildingNumber,
-      dormitory: selectedDormitoryNumber,
+      room: selectedDormitoryNumber,
       item: selectedRepairItem,
       phone: phoneNumber,
+      description: text,
     };
-    console.log(repairInfo)
-    // 提示报修申请提交成功
-    wx.showToast({
-      title: '报修申请提交成功',
-      icon: 'success',
-      duration: 2000,
-      success: () => {
-        // 清空表单数据
-        this.setData({
-          selectedBuildingNumber: '',
-          selectedDormitoryNumber: '',
-          selectedRepairItem: '',
-          phoneNumber: '',
-          text: '',
+
+    wx.request({
+      url: 'http://localhost:8088/dormMaintenance/add',
+      method: 'POST',
+      data: postData,
+      success: (res) => {
+        // console.log(res);
+        if (res.data.msg === '新增成功') {
+          this.getRecord();
+          wx.showToast({
+            title: '报修申请提交成功',
+            icon: 'success',
+            duration: 2000,
+            success: () => {
+              this.setData({
+                text: '',
+              });
+            },
+          });
+        } else {
+          wx.showToast({
+            title: '报修申请提交失败',
+            icon: 'none',
+          });
+        }
+      },
+      fail: () => {
+        wx.showToast({
+          title: '请求失败，请检查网络连接',
+          icon: 'none',
         });
       },
     });

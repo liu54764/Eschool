@@ -28,7 +28,7 @@
   <view class="divider"></view>
   <view class="form-group">
     <text class="label">报修原因</text>
-    <textarea model:value="{{reason}}" class="textarea" placeholder="请输入报修原因" bindinput="handleReasonInput"></textarea>
+    <textarea model:value="{{text}}" class="textarea" placeholder="请输入报修原因" bindinput="handleReasonInput"></textarea>
   </view>
   <view class="divider"></view>
   <view class="form-group">
@@ -45,7 +45,8 @@
     <view class="modal-title">报修记录</view>
     <view class="record-list">
       <view class="record" wx:for="{{repairRecords}}" wx:key="index">
-        {{item}}
+        {{item.item}} - {{item.time}}
+        <view class="record-separator"></view>
       </view>
     </view>
     <button class="modal-button" bindtap="hideRecordModal">关闭</button>

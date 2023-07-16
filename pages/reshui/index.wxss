@@ -52,7 +52,7 @@
 .recharge-button {
   width: 100%;
   padding: 10px;
-  background-color: #4a90e2;
+  background-color: #1ab8c4;
   color: #fff;
   border-radius: 4px;
   text-align: center;
@@ -72,7 +72,7 @@
   font-weight: bold;
   font-size: 20px;
   padding: 10px;
-  background-color: #4a90e2;
+  background-color: #1ab8c4;
   color: #fff;
   /* border-radius: 4px; */
   text-align: center;
@@ -154,7 +154,7 @@
   font-size: 16px;
   padding: 10px;
   margin: 5px;
-  background-color: #4a90e2;
+  background-color: #1ab8c4;
   color: #fff;
   border-radius: 4px;
   text-align: center;
@@ -167,7 +167,7 @@
 }
 
 .modal-button {
-  background-color: #4a90e2;
+  background-color: #1ab8c4;
   color: #fff;
   font-weight: bold;
 }
