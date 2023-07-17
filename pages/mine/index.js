@@ -3,7 +3,7 @@ Page({
     showRecordModal: false,
     newSid: "",
     newSname: "",
-    newPassword: "",
+   
     newBuilding: "",
     newRoom: "",
     newCardAmount: "",
@@ -12,16 +12,24 @@ Page({
   },
 
   showPurchaseHistory: function () {
+    const token = wx.getStorageSync('token');
+    const name = token.data.sname;
+    const studentID = token.data.sid;
+    const room = token.data.room;
+    const building = token.data.building;
+    const card = token.data.cardAmount;
+    const hot = token.data.hotWater;
+    const password = token.data.password;
     this.setData({
       showRecordModal: true,
-      newSid: "",
-      newSname: "",
-      newPassword: "",
-      newBuilding: "",
-      newRoom: "",
-      newCardAmount: "",
-      newHotWater: "",
-      newPhone: "",
+      newSname: name,
+      newSid: studentID,
+      newPhone: token.data.phone,
+      newBuilding: building,
+     newRoom: room,
+     newCardAmount:card ,
+     newHotWater: hot,
+     newPassword: password,
     });
   },
 
@@ -80,30 +88,17 @@ Page({
   },
 
   updateUserInfo: function () {
-    // const newSid = this.data.newSid;
+    const newSid = this.data.newSid;
     const newSname = this.data.newSname;
-    const newPassword = this.data.newPassword;
+    const newPassword = this.data.password;
     const newBuilding = this.data.newBuilding;
     const newRoom = this.data.newRoom;
     const newCardAmount = this.data.newCardAmount;
     const newHotWater = this.data.newHotWater;
     const newPhone = this.data.newPhone;
-
-    const token = wx.getStorageSync('token');
-    const name = token.data.sname;
-    const newSid  = token.data.sid;
-    const room = token.data.room;
-    const building = token.data.building;
-    this.setData({
-      name: name,
-      studentID: studentID,
-      phone: token.data.phone,
-      selectedBuildingNumber: building,
-      selectedDormitoryNumber: room,
-    });
     // 将新的个人信息发送给后端进行修改
     wx.request({
-      url: "http://localhost:8088/student/editinformation",
+      url: "http://localhost:8088/student/editInformation",
       method: "POST",
       data: {
         sid: newSid,
@@ -116,7 +111,12 @@ Page({
         phone: newPhone,
       },
       success: (res) => {
-        console.log("个人信息修改成功:", res.data);
+        wx.showToast({
+          title: '个人信息修改成功',
+          icon: 'none',
+        });
+        wx.setStorageSync('token', res.data);
+        // console.log("个人信息修改成功:", res.data);
         // 在此可以执行其他逻辑，如更新页面显示等
       },
       fail: (error) => {

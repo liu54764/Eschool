@@ -35,14 +35,14 @@
 <view class="modal" wx:if="{{showRecordModal}}">
   <view class="modal-content">
     <view class="modal-title">信息修改</view>
-    <input placeholder="学号" bindinput="inputSid" value="{{ newSid }}"></input>
-    <input placeholder="姓名" bindinput="inputSname" value="{{ newSname }}"></input>
-    <input placeholder="密码" bindinput="inputPassword" value="{{ newPassword }}"></input>
-    <input placeholder="宿舍楼号" bindinput="inputBuilding" value="{{ newBuilding }}"></input>
-    <input placeholder="宿舍房间号" bindinput="inputRoom" value="{{ newRoom }}"></input>
-    <input placeholder="一卡通余额" bindinput="inputCardAmount" value="{{ newCardAmount }}"></input>
-    <input placeholder="热水余额" bindinput="inputHotWater" value="{{ newHotWater }}"></input>
-    <input placeholder="联系电话" bindinput="inputPhone" value="{{ newPhone }}"></input>
+    <input placeholder="学号" bindinput="inputSid"  model:value="{{ newSid }}"></input>
+    <input placeholder="姓名" bindinput="inputSname" model:value="{{ newSname }}"></input>
+    <input placeholder="密码" bindinput="inputPassword" model:value="{{ newPassword }}"></input>
+    <input placeholder="宿舍楼号" bindinput="inputBuilding" model:value="{{ newBuilding }}"></input>
+    <input placeholder="宿舍房间号" bindinput="inputRoom" model:value="{{ newRoom }}"></input>
+    <input placeholder="一卡通余额" bindinput="inputCardAmount" model:value="{{ newCardAmount }}"></input>
+    <input placeholder="热水余额" bindinput="inputHotWater" model:value="{{ newHotWater }}"></input>
+    <input placeholder="联系电话" bindinput="inputPhone" model:value="{{ newPhone }}"></input>
     <button class="modal-button" bindtap="updateUserInfo">确定</button>
     <button class="modal-button" bindtap="hideRecordModal">关闭</button>
   </view>
