@@ -2,15 +2,17 @@
   <view slot="backText">返回</view>
   <view slot="content" style="text-align: center;font-weight: 700;">个人中心</view>
 </cu-custom>
+
 <view class="userinfo">
-<view class="userinfo-avatar">
-  <open-data type="userAvatarUrl"></open-data>
-</view>
+  <view class="userinfo-avatar">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
   <open-data type="userNickName"></open-data>
 </view>
+
 <view class="menu">
-  <view bindtap="info">个人信息
-  <image class="jiantou" src="/asset/imgs/refresh.png"></image>
+  <view bindtap="showPurchaseHistory">个人信息
+    <image class="jiantou" src="/asset/imgs/refresh.png"></image>
   </view>
   <view bindtap="yikatong">一卡通余额查询
     <image class="jiantou" src="/asset/imgs/refresh.png"></image>
@@ -26,5 +28,22 @@
   </view>
   <view bindtap="shezhi">退出登录
     <image class="jiantou" src="/asset/imgs/refresh.png"></image>
+  </view>
+</view>
+
+<!-- 添加个人信息修改对话框 -->
+<view class="modal" wx:if="{{showRecordModal}}">
+  <view class="modal-content">
+    <view class="modal-title">信息修改</view>
+    <input placeholder="学号" bindinput="inputSid" value="{{ newSid }}"></input>
+    <input placeholder="姓名" bindinput="inputSname" value="{{ newSname }}"></input>
+    <input placeholder="密码" bindinput="inputPassword" value="{{ newPassword }}"></input>
+    <input placeholder="宿舍楼号" bindinput="inputBuilding" value="{{ newBuilding }}"></input>
+    <input placeholder="宿舍房间号" bindinput="inputRoom" value="{{ newRoom }}"></input>
+    <input placeholder="一卡通余额" bindinput="inputCardAmount" value="{{ newCardAmount }}"></input>
+    <input placeholder="热水余额" bindinput="inputHotWater" value="{{ newHotWater }}"></input>
+    <input placeholder="联系电话" bindinput="inputPhone" value="{{ newPhone }}"></input>
+    <button class="modal-button" bindtap="updateUserInfo">确定</button>
+    <button class="modal-button" bindtap="hideRecordModal">关闭</button>
   </view>
 </view>

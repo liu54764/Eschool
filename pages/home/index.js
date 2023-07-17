@@ -59,7 +59,7 @@ Page({
   {
     setTimeout(() => {
       wx.navigateTo({
-        url: '/pages/buy/index',
+        url: '/pages/shangpin/index',
       })
     }, 500);
   },

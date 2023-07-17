@@ -158,3 +158,40 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+
+/* 显示交易记录 */
+.transaction-records {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1ab8c4;
+}
+
+.transaction-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.transaction-item {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.transaction-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 5px 0;
+}
+

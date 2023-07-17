@@ -8,13 +8,17 @@ Page({
     showModal: false,  // 是否显示模态框
     showToast: false, // 是否显示充值成功提示
     showRecordModal: false,  // 是否显示购买记录对话框
-    purchaseRecords: []  // 购买记录
+    purchaseRecords: [],  // 购买记录
+    showTransactionRecords: false, // 控制交易记录显示状态，默认为隐藏
+    transactionRecords:  [
+    ], // 交易记录数据，根据实际情况进行设置
   },
 
   onLoad: function () {
     this.getBalance();
     this.setRechargeAmountRange();
     this.getRecord();
+    this.getRecord1();
   },
 
   getBalance: function () {
@@ -80,6 +84,47 @@ Page({
         } else {
           wx.showToast({
             title: '获取充值记录失败',
+            icon: 'none'
+          });
+        }
+      },
+      fail: () => {
+        wx.showToast({
+          title: '请求失败，请检查网络连接',
+          icon: 'none'
+        });
+      }
+    });
+  },
+  getRecord1: function () {
+    const token = wx.getStorageSync('token');
+    const sid = token.data.sid;
+    const postData = {
+      sid: sid,
+    };
+    wx.request({
+      url: 'http://localhost:8088/consumerRecord/list',
+      method: 'POST',
+      data: postData,
+      success: (res) => {
+        console.log(res);
+        if (res.data.msg === "查询成功") {
+          const rechargeRecords = res.data.data;
+          const formattedRecords = rechargeRecords.map(record => {
+            return {
+              sid: record.sid,
+              type: record.type,
+              address:record.address,
+              amount: record.amount,
+              time: record.time ? new Date(record.time).toLocaleString() : ''
+            };
+          });
+          this.setData({
+            transactionRecords: formattedRecords
+          });
+        } else {
+          wx.showToast({
+            title: '获取交易记录失败',
             icon: 'none'
           });
         }
@@ -210,7 +255,10 @@ Page({
     }, 2000);
   },
 
-  handleTransactionRecords: function () {
-    // 处理查看交易记录的逻辑
-  }
+  handleTransactionRecords() {
+    // 点击交易记录按钮后，切换显示状态
+    this.setData({
+      showTransactionRecords: !this.data.showTransactionRecords,
+    });
+  },
 });

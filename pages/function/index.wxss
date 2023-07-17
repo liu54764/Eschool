@@ -69,13 +69,19 @@
 }
 
 .order .order_top .top_right{
-  color: rgb(133, 227, 198);
-  background-color: rgba(133,227,198,.2);
+  color: rgb(240, 187, 13);
+  /* background-color: rgba(133,227,198,.2); */
   padding: 10rpx 25rpx;
   border: 15rpx;
   font-size: 28rpx;
 }
-
+.order .order_top .top_right1{
+  color: rgb(37, 201, 51);
+  /* background-color: rgba(133,227,198,.2); */
+  padding: 10rpx 25rpx;
+  border: 15rpx;
+  font-size: 28rpx;
+}
 .order .order_content{
   padding-left: 70rpx;
   padding-top: 20rpx;

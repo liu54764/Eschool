@@ -49,6 +49,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "商品购买",
+          "pathName": "pages/shangpin/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -30,10 +30,10 @@
       <text class="cuIcon-new"></text>
       <text>网上订水</text>
     </button>
-    <button class="function-button" bindtap="navigateToFunctionPage6">
+    <!-- <button class="function-button" bindtap="navigateToFunctionPage6">
       <text class="cuIcon-goods"></text>
       <text>商品购买</text>
-    </button>
+    </button> -->
     <button class="function-button" bindtap="navigateToFunctionPage7">
       <text class="cuIcon-repair"></text>
       <text>宿舍维修</text>
@@ -42,10 +42,10 @@
       <text class="cuIcon-service"></text>
       <text>个人物品维修</text>
     </button>
-    <button class="function-button" bindtap="navigateToFunctionPage9">
+    <!-- <button class="function-button" bindtap="navigateToFunctionPage9">
       <text class="cuIcon-run"></text>
       <text>跑腿服务</text>
-    </button>
+    </button> -->
   </view>
   </view>
   <view style="width: 200px;height: 50px;">

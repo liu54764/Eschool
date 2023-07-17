@@ -1,66 +1,132 @@
-// pages/mine/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    showRecordModal: false,
+    newSid: "",
+    newSname: "",
+    newPassword: "",
+    newBuilding: "",
+    newRoom: "",
+    newCardAmount: "",
+    newHotWater: "",
+    newPhone: "",
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  showPurchaseHistory: function () {
+    this.setData({
+      showRecordModal: true,
+      newSid: "",
+      newSname: "",
+      newPassword: "",
+      newBuilding: "",
+      newRoom: "",
+      newCardAmount: "",
+      newHotWater: "",
+      newPhone: "",
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  hideRecordModal: function () {
+    this.setData({
+      showRecordModal: false,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  inputSid: function (event) {
+    this.setData({
+      newSid: event.detail.value,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  inputSname: function (event) {
+    this.setData({
+      newSname: event.detail.value,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
+  inputPassword: function (event) {
+    this.setData({
+      newPassword: event.detail.value,
+    });
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
+  inputBuilding: function (event) {
+    this.setData({
+      newBuilding: event.detail.value,
+    });
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
+  inputRoom: function (event) {
+    this.setData({
+      newRoom: event.detail.value,
+    });
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
+  inputCardAmount: function (event) {
+    this.setData({
+      newCardAmount: event.detail.value,
+    });
+  },
 
-  }
-})
+  inputHotWater: function (event) {
+    this.setData({
+      newHotWater: event.detail.value,
+    });
+  },
+
+  inputPhone: function (event) {
+    this.setData({
+      newPhone: event.detail.value,
+    });
+  },
+
+  updateUserInfo: function () {
+    // const newSid = this.data.newSid;
+    const newSname = this.data.newSname;
+    const newPassword = this.data.newPassword;
+    const newBuilding = this.data.newBuilding;
+    const newRoom = this.data.newRoom;
+    const newCardAmount = this.data.newCardAmount;
+    const newHotWater = this.data.newHotWater;
+    const newPhone = this.data.newPhone;
+
+    const token = wx.getStorageSync('token');
+    const name = token.data.sname;
+    const newSid  = token.data.sid;
+    const room = token.data.room;
+    const building = token.data.building;
+    this.setData({
+      name: name,
+      studentID: studentID,
+      phone: token.data.phone,
+      selectedBuildingNumber: building,
+      selectedDormitoryNumber: room,
+    });
+    // 将新的个人信息发送给后端进行修改
+    wx.request({
+      url: "http://localhost:8088/student/editinformation",
+      method: "POST",
+      data: {
+        sid: newSid,
+        sname: newSname,
+        password: newPassword,
+        building: newBuilding,
+        room: newRoom,
+        cardAmount: newCardAmount,
+        hotWater: newHotWater,
+        phone: newPhone,
+      },
+      success: (res) => {
+        console.log("个人信息修改成功:", res.data);
+        // 在此可以执行其他逻辑，如更新页面显示等
+      },
+      fail: (error) => {
+        console.error("个人信息修改失败:", error);
+        // 在此可以执行错误处理逻辑
+      },
+    });
+
+    this.setData({
+      showRecordModal: false,
+    });
+  },
+});

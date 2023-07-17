@@ -19,6 +19,20 @@
     <button class="button" bindtap="showPurchaseHistory">充值记录</button>
     <button class="button" bindtap="handleTransactionRecords">交易记录</button>
   </view>
+
+  <view class="transaction-records" wx:if="{{showTransactionRecords}}">
+  <view class="transaction-title">交易记录</view>
+  <view class="transaction-list">
+    <!-- 循环遍历交易记录并显示 -->
+    <view class="transaction-item" wx:for="{{transactionRecords}}" wx:key="index">
+      <view>交易金额: {{item.amount}} 元</view>
+      <view>交易金额: {{item.type}} </view>
+      <view>交易时间: {{item.time}}</view>
+      <view>交易金额: {{item.address}} </view>
+      <view class="transaction-separator"></view>
+    </view>
+  </view>
+</view>
 </view>
 
 <!-- 添加自定义的模态框 -->
@@ -55,3 +69,5 @@
     <button class="modal-button" bindtap="hideRecordModal">关闭</button>
   </view>
 </view>
+
+
