@@ -26,7 +26,7 @@
   <view bindtap="shezhi">设置
     <image class="jiantou" src="/asset/imgs/refresh.png"></image>
   </view>
-  <view bindtap="shezhi">退出登录
+  <view bindtap="shezhi" bindtap="out">退出登录
     <image class="jiantou" src="/asset/imgs/refresh.png"></image>
   </view>
 </view>

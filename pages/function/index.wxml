@@ -102,7 +102,7 @@
     </view>
     <view class="order_bottom">
       <view class="money">
-        金额 ￥{{ item.amount }}
+        金额 ￥{{ item.amount }}{{--- item.hid }}
       </view>
       <!-- <view class="accept" bindtap="acceptOrder" data-orderId="{{ item.hid }}">
         接单

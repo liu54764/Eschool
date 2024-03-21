@@ -32,7 +32,14 @@ Page({
      newPassword: password,
     });
   },
-
+  out(){
+    wx.clearStorageSync();
+    setTimeout(() => {
+      wx.redirectTo({
+        url: '/pages/login/index',
+      })
+    }, 500);
+  },
   hideRecordModal: function () {
     this.setData({
       showRecordModal: false,
